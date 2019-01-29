@@ -78,7 +78,24 @@ module.exports = {
             },
             {
                 test: /\.svg$/,
-                use: ['svg-sprite-loader', 'svgo-loader'],
+                use: [
+                    'svg-sprite-loader',
+                    {
+                        loader: 'svgo-loader',
+                        options: {
+                            plugins: [
+                                { removeTitle: true },
+                                { convertColors: { shorthex: false } },
+                                { convertPathData: false },
+                                {
+                                    removeAttrs: {
+                                        attrs: '(fill|stroke|style)',
+                                    },
+                                },
+                            ],
+                        },
+                    },
+                ],
             },
         ],
     },
