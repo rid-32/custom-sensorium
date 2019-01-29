@@ -1,0 +1,11 @@
+@import "./settings.scss";
+
+.pageLayout {
+  min-width: $container-min-width;
+  max-width: $container-max-width;
+
+  &-content {
+    padding-left: $content-padding-left;
+    padding-right: $content-padding-right;
+  }
+}

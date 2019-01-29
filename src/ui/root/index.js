@@ -1,12 +1,11 @@
 import jsx from 'custom-elements-jsx'
+import history from 'utils/history'
 
-import './styles'
+import { renderRoutes } from 'lib/custom-elements-router'
+import routes from 'routes'
 
 const root = (
-    <div className="root-container">
-        <page-header />
-        <main className="root-content">How are you?</main>
-    </div>
+    <custom-router history={history}>{renderRoutes(routes)}</custom-router>
 )
 
 export default root
