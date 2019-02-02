@@ -11,47 +11,79 @@ import './styles'
 
 class HeaderMenu extends Component {
     render() {
+        const { context } = this.props
+
         return (
-            <div className="header-menu">
-                <custom-link to="/statistic">
+            <div className="headerMenu">
+                <custom-nav-link
+                    to="/statistic"
+                    context={context}
+                    className="headerMenu-link"
+                    activeClassName="headerMenu-link-isActive"
+                >
                     <menu-item
                         xlinkHref={research.id}
-                        className="header-menu-research"
+                        className="headerMenu-research"
                     >
                         Статистика
                     </menu-item>
-                </custom-link>
-                <custom-link to="/documents">
-                    <menu-item xlinkHref={test.id} className="header-menu-test">
+                </custom-nav-link>
+                <custom-nav-link
+                    to="/documents"
+                    context={context}
+                    className="headerMenu-link"
+                    activeClassName="headerMenu-link-isActive"
+                >
+                    <menu-item xlinkHref={test.id} className="headerMenu-test">
                         Документы
                     </menu-item>
-                </custom-link>
-                <custom-link to="/email">
+                </custom-nav-link>
+                <custom-nav-link
+                    to="/email"
+                    context={context}
+                    className="headerMenu-link"
+                    activeClassName="headerMenu-link-isActive"
+                >
                     <menu-item
                         xlinkHref={email.id}
-                        className="header-menu-email"
+                        className="headerMenu-email"
                     >
                         Письма
                     </menu-item>
-                </custom-link>
-                <custom-link to="/users">
+                </custom-nav-link>
+                <custom-nav-link
+                    to="/users"
+                    context={context}
+                    className="headerMenu-link"
+                    activeClassName="headerMenu-link-isActive"
+                >
                     <menu-item
                         xlinkHref={group.id}
-                        className="header-menu-group"
+                        className="headerMenu-group"
                     >
                         Пользователи
                     </menu-item>
-                </custom-link>
-                <custom-link to="/settings">
-                    <menu-item xlinkHref={gear.id} className="header-menu-gear">
+                </custom-nav-link>
+                <custom-nav-link
+                    to="/settings"
+                    context={context}
+                    className="headerMenu-link"
+                    activeClassName="headerMenu-link-isActive"
+                >
+                    <menu-item xlinkHref={gear.id} className="headerMenu-gear">
                         Настройки
                     </menu-item>
-                </custom-link>
-                <custom-link to="/help">
-                    <menu-item xlinkHref={help.id} className="header-menu-help">
+                </custom-nav-link>
+                <custom-nav-link
+                    to="/help"
+                    context={context}
+                    className="headerMenu-link"
+                    activeClassName="headerMenu-link-isActive"
+                >
+                    <menu-item xlinkHref={help.id} className="headerMenu-help">
                         Помощь
                     </menu-item>
-                </custom-link>
+                </custom-nav-link>
             </div>
         )
     }

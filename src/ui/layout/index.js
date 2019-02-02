@@ -10,7 +10,7 @@ class PageLayout extends Component {
 
         return (
             <div className="pageLayout">
-                <page-header />
+                <page-header context={context} />
                 <main className="pageLayout-content">
                     {renderRoutes(route.routes, context)}
                 </main>

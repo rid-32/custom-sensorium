@@ -1,18 +1,51 @@
 import jsx, { Component } from 'custom-elements-jsx'
+import { createLocation } from 'history'
+
+const isModifiedEvent = event =>
+    !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey)
 
 class CustomLink extends Component {
-    onClick = event => event.preventDefault()
+    onClick = event => {
+        const { context = {}, to, replace, onClick, target } = this.props
+        const { history } = context
+
+        if (onClick) onClick(event)
+
+        if (
+            !event.defaultPrevented && // onClick prevented default
+            event.button === 0 && // ignore everything but left clicks
+            (!target || target === '_self') && // let browser handle "target=_blank" etc.
+            !isModifiedEvent(event) // ignore clicks with modifier keys
+        ) {
+            event.preventDefault()
+
+            if (history) {
+                const method = replace ? history.replace : history.push
+
+                method(to)
+            }
+        }
+    }
 
     render() {
-        const { to, children, className } = this.props
+        const { innerRef, to, children, context, replace, ...rest } = this.props
+        const location =
+            typeof context && to === 'string'
+                ? createLocation(to, null, null, context.location)
+                : to
+        const href =
+            context && location
+                ? context.history.createHref(context.location)
+                : ''
+        const otherProps = innerRef
+            ? {
+                ...rest,
+                ref: innerRef,
+            }
+            : rest
 
         return (
-            <a
-                href={to}
-                onClick={this.onClick}
-                style={{ cursor: 'pointer' }}
-                className={className}
-            >
+            <a {...otherProps} href={href} onClick={this.onClick}>
                 {children}
             </a>
         )

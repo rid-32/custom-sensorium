@@ -1,8 +1,13 @@
+const stringsIntersection = (str1, str2) =>
+    !!str1.substring(str2) && !!str2.substring(str1)
+
 export const renderRoutes = (routes = [], context = {}) => {
     const { location } = context
 
     const filteredRoutes = routes.filter(({ path, exact }) =>
-        exact ? location.pathname === path : location.pathname.includes(path)
+        exact
+            ? location.pathname === path
+            : stringsIntersection(location.pathname, path)
     )
 
     const route = filteredRoutes[0] || {}
@@ -10,8 +15,11 @@ export const renderRoutes = (routes = [], context = {}) => {
     if (route.component) {
         const node = document.createElement(route.component)
 
-        node.props.route = { ...route }
-        node.props.context = { ...context }
+        node.props = {
+            ...node.props,
+            route,
+            context,
+        }
 
         return node
     } else {

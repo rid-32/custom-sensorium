@@ -45,34 +45,57 @@
 .header {
   background-color: $header-bg-color;
   box-shadow: 0px 4px 27px rgba(0, 0, 0, 0.1);
+}
 
-  &-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.headerMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    &-research {
-      width: 33px;
+  &-link {
+    text-decoration: none;
+    color: #000;
+
+    &-isActive {
+      .menuItem {
+        background: linear-gradient(
+          180deg,
+          rgba(129, 212, 250, 0.5) 0%,
+          rgba(255, 255, 255, 0) 100%
+        );
+      }
+
+      .menuItem-icon {
+        fill: $icon-color;
+      }
+
+      .menuItem-top {
+        fill: $top-color;
+      }
     }
+  }
 
-    &-test {
-      width: 27px;
-    }
+  &-research {
+    width: 33px;
+  }
 
-    &-email {
-      width: 33px;
-    }
+  &-test {
+    width: 27px;
+  }
 
-    &-group {
-      width: 51px;
-    }
+  &-email {
+    width: 33px;
+  }
 
-    &-gear {
-      width: 31px;
-    }
+  &-group {
+    width: 51px;
+  }
 
-    &-help {
-      width: 33px;
-    }
+  &-gear {
+    width: 31px;
+  }
+
+  &-help {
+    width: 33px;
   }
 }

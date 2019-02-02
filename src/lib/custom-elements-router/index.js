@@ -1,20 +1,23 @@
-import jsx, { Component } from 'custom-elements-jsx'
+import { Component } from 'custom-elements-jsx'
 
 import { renderRoutes } from './utils'
 
 import './link'
+import './navLink'
 
 class CustomRouter extends Component {
-    constructor() {
-        super()
-
+    componentDidCreate() {
         const { history } = this.props
 
-        this.unlisten = history.listen((location, action) => {
-            this.location = location
-            this.action = action
+        this.location = history.location
 
-            this.update()
+        this.unlisten = history.listen((location, action) => {
+            if (location.pathname !== this.location.pathname) {
+                this.location = location
+                this.action = action
+
+                this.update()
+            }
         })
     }
 

@@ -4,6 +4,11 @@ const routes = [
         component: 'page-layout',
         routes: [
             {
+                path: '/',
+                component: 'custom-statistic',
+                exact: true,
+            },
+            {
                 path: '/statistic',
                 component: 'custom-statistic',
                 exact: true,

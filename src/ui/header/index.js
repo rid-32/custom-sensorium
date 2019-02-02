@@ -4,9 +4,11 @@ import './styles'
 
 class Header extends Component {
     render() {
+        const { context } = this.props
+
         return (
             <header className="header">
-                <header-menu />
+                <header-menu context={context} />
             </header>
         )
     }
