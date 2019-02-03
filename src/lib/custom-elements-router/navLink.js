@@ -1,21 +1,40 @@
 import jsx, { Component } from 'custom-elements-jsx'
 
+const joinClassnames = (...classnames) => {
+    return classnames.filter(i => i).join(' ')
+}
+
 class NavLink extends Component {
     render() {
         const {
             to,
+            className: classNameProp,
+            activeClassName = 'active',
+            style: styleProp,
+            activeStyle,
+            isActive: isActiveProp,
             context = {},
             children,
-            className,
-            activeClassName,
             ...rest
         } = this.props
-        const isLinkActive =
+        const isActive =
             !!context.location && context.location.pathname.includes(to)
-        const cn = `${className} ${isLinkActive ? activeClassName : ''}`
+        // const isActive = !!(isActiveProp
+        //     ? isActiveProp(context.match, context.location)
+        //     : context.match)
+        const className = isActive
+            ? joinClassnames(classNameProp, activeClassName)
+            : classNameProp
+        const style = isActive ? { ...styleProp, ...activeStyle } : styleProp
 
         return (
-            <custom-link to={to} context={context} className={cn} {...rest}>
+            <custom-link
+                to={to}
+                context={context}
+                className={className}
+                style={style}
+                {...rest}
+            >
                 {children}
             </custom-link>
         )

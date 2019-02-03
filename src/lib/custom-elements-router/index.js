@@ -1,24 +1,30 @@
 import { Component } from 'custom-elements-jsx'
 
-import { renderRoutes } from './utils'
+import renderRoutes from './renderRoutes'
 
 import './link'
 import './navLink'
+import './redirect'
 
 class CustomRouter extends Component {
+    static computeRootMatch(pathname) {
+        return { path: '/', url: '/', params: {}, isExact: pathname === '/' }
+    }
+
     componentDidCreate() {
-        const { history } = this.props
+        const { history, staticContext } = this.props
 
         this.location = history.location
 
-        this.unlisten = history.listen((location, action) => {
-            if (location.pathname !== this.location.pathname) {
-                this.location = location
-                this.action = action
+        if (!staticContext) {
+            this.unlisten = history.listen(location => {
+                if (location.pathname !== this.location.pathname) {
+                    this.location = location
 
-                this.update()
-            }
-        })
+                    this.update()
+                }
+            })
+        }
     }
 
     componentWillUnmount() {
@@ -26,14 +32,19 @@ class CustomRouter extends Component {
     }
 
     render() {
+        const { routes, history, staticContext, children } = this.props
         const context = {
-            history: this.props.history,
+            history: history,
             location: this.location,
-            action: this.action,
-            // match:
+            match: CustomRouter.computeRootMatch(this.location.pathname),
+            staticContext,
         }
 
-        return renderRoutes(this.props.routes, context)
+        if (routes) {
+            return renderRoutes(routes, context)
+        } else {
+            return children
+        }
     }
 }
 

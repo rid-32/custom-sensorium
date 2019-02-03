@@ -5,37 +5,38 @@ const routes = [
         routes: [
             {
                 path: '/',
-                component: 'custom-statistic',
+                component: 'custom-redirect',
                 exact: true,
+                to: '/documents',
             },
             {
                 path: '/statistic',
-                component: 'custom-statistic',
+                component: 'statistic-page',
                 exact: true,
             },
             {
                 path: '/documents',
-                component: 'custom-documents',
+                component: 'documents-page',
                 exact: true,
             },
             {
                 path: '/email',
-                component: 'custom-email',
+                component: 'email-page',
                 exact: true,
             },
             {
                 path: '/users',
-                component: 'custom-users',
+                component: 'users-page',
                 exact: true,
             },
             {
                 path: '/settings',
-                component: 'custom-settings',
+                component: 'settings-page',
                 exact: true,
             },
             {
                 path: '/help',
-                component: 'custom-help',
+                component: 'help-page',
                 exact: true,
             },
         ],

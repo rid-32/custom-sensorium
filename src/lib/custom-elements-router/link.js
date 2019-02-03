@@ -30,7 +30,7 @@ class CustomLink extends Component {
     render() {
         const { innerRef, to, children, context, replace, ...rest } = this.props
         const location =
-            typeof context && to === 'string'
+            typeof context && typeof to === 'string'
                 ? createLocation(to, null, null, context.location)
                 : to
         const href =

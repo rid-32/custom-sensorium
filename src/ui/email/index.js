@@ -1,10 +1,10 @@
 import jsx, { Component } from 'custom-elements-jsx'
 
-class Email extends Component {
+class EmailPage extends Component {
     render() {
         return <h3>Email!</h3>
     }
 }
 
-if (!window.customElements.get('custom-email'))
-    window.customElements.define('custom-email', Email)
+if (!window.customElements.get('email-page'))
+    window.customElements.define('email-page', EmailPage)
