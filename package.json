@@ -52,7 +52,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.6",
-    "custom-elements-jsx": "^1.0.3",
+    "custom-elements-jsx": "^1.0.4",
     "history": "^4.7.2",
     "path-to-regexp": "^3.0.0",
     "redux": "^4.0.1",

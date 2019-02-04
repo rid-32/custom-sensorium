@@ -1,10 +1,13 @@
 import { Component } from 'custom-elements-jsx'
+import invariant from 'tiny-invariant'
 
 import renderRoutes from './renderRoutes'
 
 import './link'
 import './navLink'
 import './redirect'
+import './switch'
+import './route'
 
 class CustomRouter extends Component {
     static computeRootMatch(pathname) {
@@ -12,12 +15,18 @@ class CustomRouter extends Component {
     }
 
     componentDidCreate() {
+        invariant(
+            this.props.history,
+            'You should not use <custom-router> without history'
+        )
+
         const { history, staticContext } = this.props
 
         this.location = history.location
 
         if (!staticContext) {
             this.unlisten = history.listen(location => {
+                // нужно ли здесь это условие?
                 if (location.pathname !== this.location.pathname) {
                     this.location = location
 
@@ -43,6 +52,7 @@ class CustomRouter extends Component {
         if (routes) {
             return renderRoutes(routes, context)
         } else {
+            // к каждому children`у нужно добавить контекст
             return children
         }
     }

@@ -2029,10 +2029,10 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
-custom-elements-jsx@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/custom-elements-jsx/-/custom-elements-jsx-1.0.3.tgz#710e63cd977c973732ccbb04bc7e25c0bbad1d26"
-  integrity sha512-bipTsab9quDvrpoWdKUdkUzBsWif7ZpJ89RVKIYMR4GgAggXmf+JZBCIXumZKbkek5sDSi6cMqkYVjRjARWg1g==
+custom-elements-jsx@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/custom-elements-jsx/-/custom-elements-jsx-1.0.4.tgz#cb8c46b0ab3941c9c61691ebc8bcce8489cd4f3c"
+  integrity sha512-rsFdy9sMB6y8jlL0NWXoxbmTk7l1GOXGlVTCTssxVb1+ZqdM5SoI0+cyuhRh6o7TnK3+6K5lKKIT2KLlrI0dhQ==
 
 cyclist@~0.2.2:
   version "0.2.2"

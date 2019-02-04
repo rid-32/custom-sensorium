@@ -1,10 +1,18 @@
 import jsx, { Component } from 'custom-elements-jsx'
+import invariant from 'tiny-invariant'
 
 const joinClassnames = (...classnames) => {
     return classnames.filter(i => i).join(' ')
 }
 
 class NavLink extends Component {
+    componentDidCreate() {
+        invariant(
+            this.props.context,
+            'You should not use <custom-nav-link> without context'
+        )
+    }
+
     render() {
         const {
             to,

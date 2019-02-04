@@ -1,10 +1,18 @@
 import jsx, { Component } from 'custom-elements-jsx'
 import { createLocation } from 'history'
+import invariant from 'tiny-invariant'
 
 const isModifiedEvent = event =>
     !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey)
 
 class CustomLink extends Component {
+    componentDidCreate() {
+        invariant(
+            this.props.context,
+            'You should not use <custom-link> without context'
+        )
+    }
+
     onClick = event => {
         const { context = {}, to, replace, onClick, target } = this.props
         const { history } = context
@@ -30,7 +38,7 @@ class CustomLink extends Component {
     render() {
         const { innerRef, to, children, context, replace, ...rest } = this.props
         const location =
-            typeof context && typeof to === 'string'
+            context && typeof to === 'string'
                 ? createLocation(to, null, null, context.location)
                 : to
         const href =

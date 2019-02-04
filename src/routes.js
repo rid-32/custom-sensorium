@@ -7,7 +7,7 @@ const routes = [
                 path: '/',
                 component: 'custom-redirect',
                 exact: true,
-                to: '/documents',
+                to: '/statistic',
             },
             {
                 path: '/statistic',
