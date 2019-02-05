@@ -4,12 +4,6 @@ const routes = [
         component: 'page-layout',
         routes: [
             {
-                path: '/',
-                component: 'custom-redirect',
-                exact: true,
-                to: '/statistic',
-            },
-            {
                 path: '/statistic',
                 component: 'statistic-page',
                 exact: true,
@@ -38,6 +32,11 @@ const routes = [
                 path: '/help',
                 component: 'help-page',
                 exact: true,
+            },
+            {
+                path: '/',
+                component: 'custom-redirect',
+                to: '/statistic',
             },
         ],
     },

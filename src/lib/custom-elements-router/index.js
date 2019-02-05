@@ -26,12 +26,9 @@ class CustomRouter extends Component {
 
         if (!staticContext) {
             this.unlisten = history.listen(location => {
-                // нужно ли здесь это условие?
-                if (location.pathname !== this.location.pathname) {
-                    this.location = location
+                this.location = location
 
-                    this.update()
-                }
+                this.update()
             })
         }
     }
@@ -51,10 +48,11 @@ class CustomRouter extends Component {
 
         if (routes) {
             return renderRoutes(routes, context)
-        } else {
-            // к каждому children`у нужно добавить контекст
-            return children
         }
+
+        // пройтись по массиву children, добавить к каждому элементу context в пропсы
+        // создать фрагмент, добавить в этот фрагмент children и сделать return этого фрагмента
+        return null
     }
 }
 

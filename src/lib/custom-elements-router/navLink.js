@@ -1,6 +1,8 @@
 import jsx, { Component } from 'custom-elements-jsx'
 import invariant from 'tiny-invariant'
 
+import matchPath from './matchPath'
+
 const joinClassnames = (...classnames) => {
     return classnames.filter(i => i).join(' ')
 }
@@ -25,11 +27,10 @@ class NavLink extends Component {
             children,
             ...rest
         } = this.props
-        const isActive =
-            !!context.location && context.location.pathname.includes(to)
-        // const isActive = !!(isActiveProp
-        //     ? isActiveProp(context.match, context.location)
-        //     : context.match)
+        const { location = {} } = context
+        const isActive = !!(isActiveProp
+            ? isActiveProp(to, context)
+            : matchPath(location.pathname, to))
         const className = isActive
             ? joinClassnames(classNameProp, activeClassName)
             : classNameProp

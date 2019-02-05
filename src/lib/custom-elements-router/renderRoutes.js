@@ -3,34 +3,28 @@ import invariant from 'tiny-invariant'
 import matchPath from './matchPath'
 import createElement from './createElement'
 
-const stringsIntersection = (str1, str2) =>
-    !!str1.substring(str2) && !!str2.substring(str1)
-
 const renderRoutes = (routes = [], context) => {
     invariant(context, 'You should not use renderRoutes without context')
 
-    const { location } = context || {}
+    const { location, match: contextMatch } = context || {}
 
-    /* переделать как надо */
-    const filteredRoutes = routes.filter(({ path, exact }) =>
-        exact
-            ? location.pathname === path
-            : stringsIntersection(location.pathname, path)
-    )
+    const [route = {}, match] = routes.reduce((matched, route) => {
+        if (matched.length) return matched
 
-    const route = filteredRoutes[0] || {}
-    /* этот блок */
+        const match = route.path
+            ? matchPath(location.pathname, route)
+            : contextMatch
+
+        return match ? [route, match] : []
+    }, [])
 
     if (route.component) {
-        const match = route.path
-            ? matchPath(location.pathname, route.path)
-            : context.match
         const props = { route, context: { ...context, match } }
 
         return createElement(route.component, props)
-    } else {
-        throw new Error('Route component is not specify')
     }
+
+    return null
 }
 
 export default renderRoutes

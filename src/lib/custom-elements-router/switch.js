@@ -14,16 +14,17 @@ class CustomSwitch extends Component {
     render() {
         const { children, context = {} } = this.props
         const { location = {}, match: contextMatch } = context
+
         const [element, match] = children.reduce((matched, child) => {
-            if (matched) return matched
+            if (matched.length) return matched
 
             const path = child.props.path || child.props.from
             const childMatch = path
                 ? matchPath(location.pathname, { ...child.props, path })
                 : contextMatch
 
-            return childMatch ? [child, childMatch] : null
-        }, null)
+            return childMatch ? [child, childMatch] : []
+        }, [])
 
         if (element) {
             element.props.context = {
