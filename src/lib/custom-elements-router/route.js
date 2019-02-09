@@ -1,4 +1,4 @@
-import jsx, { Component } from 'custom-elements-jsx'
+import jsx, { Component, createFragmentWithChildren } from 'custom-elements-jsx'
 import invariant from 'tiny-invariant'
 
 import matchPath from './matchPath'
@@ -14,17 +14,19 @@ class CustomRoute extends Component {
 
     render() {
         const {
+            children,
             location: propsLocation,
             context = {},
             path,
             component,
             render,
         } = this.props
-        let { children } = this.props
         const {
             location: contextLocation = {},
             computedMatch,
             match: contextMatch,
+            history,
+            staticContext,
         } = context
         const location = propsLocation || contextLocation
         const match = computedMatch
@@ -32,25 +34,25 @@ class CustomRoute extends Component {
             : path
                 ? matchPath(location.pathname, this.props)
                 : contextMatch
-        const props = { context: { ...context, location, match } }
+        const props = { context: { history, location, match, staticContext } }
 
         if (typeof children === 'function') {
-            children = children(props)
-
-            if (typeof children === 'undefined') {
-                children = null
-            }
+            return children(props)
         }
 
-        return children && !children.length
-            ? children
-            : match
-                ? component
-                    ? createElement(component, props)
-                    : render
-                        ? render(props)
-                        : null
-                : null
+        if (children && children.length) {
+            return createFragmentWithChildren(children, props)
+        }
+
+        if (render) {
+            return render(props)
+        }
+
+        if (component) {
+            return createElement(component, props)
+        }
+
+        return null
     }
 }
 

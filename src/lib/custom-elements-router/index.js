@@ -1,4 +1,4 @@
-import { Component } from 'custom-elements-jsx'
+import { Component, createFragmentWithChildren } from 'custom-elements-jsx'
 import invariant from 'tiny-invariant'
 
 import renderRoutes from './renderRoutes'
@@ -52,7 +52,7 @@ class CustomRouter extends Component {
 
         // пройтись по массиву children, добавить к каждому элементу context в пропсы
         // создать фрагмент, добавить в этот фрагмент children и сделать return этого фрагмента
-        return null
+        return createFragmentWithChildren(children, { context })
     }
 }
 

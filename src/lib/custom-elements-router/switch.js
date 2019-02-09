@@ -12,7 +12,7 @@ class CustomSwitch extends Component {
     }
 
     render() {
-        const { children, context = {} } = this.props
+        const { children = [], context = {} } = this.props
         const { location = {}, match: contextMatch } = context
 
         const [element, match] = children.reduce((matched, child) => {
@@ -29,7 +29,7 @@ class CustomSwitch extends Component {
         if (element) {
             element.props.context = {
                 ...element.props.context,
-                location: location,
+                ...context,
                 computedMatch: match,
             }
 
