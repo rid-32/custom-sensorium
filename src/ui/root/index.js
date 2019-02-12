@@ -1,7 +1,7 @@
 import jsx from 'custom-elements-jsx'
 
 import history from 'utils/history'
-// import routes from 'routes'
+import routes from 'routes'
 
 import 'lib/custom-elements-router'
 

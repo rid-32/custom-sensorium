@@ -10,10 +10,6 @@ import './switch'
 import './route'
 
 class CustomRouter extends Component {
-    static computeRootMatch(pathname) {
-        return { path: '/', url: '/', params: {}, isExact: pathname === '/' }
-    }
-
     componentDidCreate() {
         invariant(
             this.props.history,
@@ -37,12 +33,16 @@ class CustomRouter extends Component {
         if (this.unlisten) this.unlisten()
     }
 
+    computeRootMatch = pathname => {
+        return { path: '/', url: '/', params: {}, isExact: pathname === '/' }
+    }
+
     render() {
         const { routes, history, staticContext, children } = this.props
         const context = {
             history: history,
             location: this.location,
-            match: CustomRouter.computeRootMatch(this.location.pathname),
+            match: this.computeRootMatch(this.location.pathname),
             staticContext,
         }
 

@@ -1,6 +1,6 @@
 import jsx, { Component } from 'custom-elements-jsx'
 
-// import { renderRoutes } from 'lib/custom-elements-router'
+import { renderRoutes } from 'lib/custom-elements-router'
 
 import './styles'
 
@@ -18,6 +18,17 @@ class PageLayout extends Component {
                             path="/statistic"
                             component="statistic-page"
                         />
+                        <custom-route
+                            path="/documents"
+                            component="documents-page"
+                        />
+                        <custom-route path="/email" component="email-page" />
+                        <custom-route path="/users" component="users-page" />
+                        <custom-route
+                            path="/settings"
+                            component="settings-page"
+                        />
+                        <custom-route path="/help" component="help-page" />
                     </custom-switch>
                 </main>
             </div>
