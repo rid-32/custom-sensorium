@@ -20,6 +20,7 @@ class CustomRoute extends Component {
             path,
             component,
             render,
+            ...other
         } = this.props
         const {
             location: contextLocation = {},
@@ -34,7 +35,10 @@ class CustomRoute extends Component {
             : path
                 ? matchPath(location.pathname, this.props)
                 : contextMatch
-        const props = { context: { history, location, match, staticContext } }
+        const props = {
+            context: { history, location, match, staticContext },
+            ...other,
+        }
 
         if (typeof children === 'function') {
             return children(props)

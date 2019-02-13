@@ -8,6 +8,10 @@ import './navLink'
 import './redirect'
 import './switch'
 import './route'
+import './memoryRouter'
+import './staticRouter'
+import './browserRouter'
+import './hashRouter'
 
 class CustomRouter extends Component {
     componentDidCreate() {

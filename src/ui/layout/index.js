@@ -29,6 +29,11 @@ class PageLayout extends Component {
                             component="settings-page"
                         />
                         <custom-route path="/help" component="help-page" />
+                        <custom-route
+                            path="/"
+                            component="custom-redirect"
+                            to="/statistic"
+                        />
                     </custom-switch>
                 </main>
             </div>

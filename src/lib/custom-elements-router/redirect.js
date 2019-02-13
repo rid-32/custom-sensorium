@@ -11,7 +11,7 @@ class CustomRedirect extends Component {
             'You should not use <custom-redirect> without context'
         )
 
-        const { route = {}, context = {}, to, push, computedMatch } = this.props
+        const { route, context = {}, to, push, computedMatch } = this.props
         const { history } = context
 
         // if we use custom-redirect inside of routes that we pass to the custom-router
