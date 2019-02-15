@@ -53,13 +53,11 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "custom-elements-jsx": "^1.0.6",
+    "custom-elements-router": "^1.0.1",
     "history": "^4.7.2",
-    "path-to-regexp": "^3.0.0",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.4",
     "redux-devtools-extension": "^2.13.7",
-    "redux-thunk": "^2.3.0",
-    "tiny-invariant": "^1.0.3",
-    "tiny-warning": "^1.0.2"
+    "redux-thunk": "^2.3.0"
   }
 }

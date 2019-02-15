@@ -1,6 +1,5 @@
 import jsx, { Component } from 'custom-elements-jsx'
-
-import { renderRoutes } from 'lib/custom-elements-router'
+import { renderRoutes } from 'custom-elements-router'
 
 import './styles'
 

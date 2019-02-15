@@ -2034,6 +2034,16 @@ custom-elements-jsx@^1.0.6:
   resolved "https://registry.yarnpkg.com/custom-elements-jsx/-/custom-elements-jsx-1.0.6.tgz#95fc3790164c84df43ef7c0d2df7bd06576cb413"
   integrity sha512-cyZ3RU6pYmO1oph5BXD5/4xw6zEKiTpG6JgMWqQyFplFU9KhU2UyEVG1PbFPzNVPFj3g0pO/pZ1rvmd/sB/yZg==
 
+custom-elements-router@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/custom-elements-router/-/custom-elements-router-1.0.1.tgz#fc8292f72a0ce5ef9237303b2bdb7c5a7b005fb5"
+  integrity sha512-EtJi9Xfif2NEgPB1FH5LH8WpauzlW9DFYLbPDaTmH1VOp93aNI4btJexqhr/xDpnkRE6t8i00VuvIn6AxyWzEQ==
+  dependencies:
+    custom-elements-jsx "^1.0.6"
+    history "^4.7.2"
+    tiny-invariant "^1.0.3"
+    tiny-warning "^1.0.2"
+
 cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
@@ -5130,11 +5140,6 @@ path-to-regexp@0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-0.1.7.tgz#df604178005f522f15eb4490e7247a1bfaa67f8c"
   integrity sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
-
-path-to-regexp@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-3.0.0.tgz#c981a218f3df543fa28696be2f88e0c58d2e012a"
-  integrity sha512-ZOtfhPttCrqp2M1PBBH4X13XlvnfhIwD7yCLx+GoGoXRPQyxGOTdQMpIzPSPKXAJT/JQrdfFrgdJOyAzvgpQ9A==
 
 path-type@^1.0.0:
   version "1.1.0"
