@@ -15,7 +15,7 @@ class CustomRedirect extends Component {
         const { history } = context
 
         // if we use custom-redirect inside of routes that we pass to the custom-router
-        // the we should values from route object. otherwise we use values from props
+        // the we should use values from route object. otherwise we use values from props
         const redirectTo = route ? route.to : to
         const redirectPush = route ? route.push : push
         const redirectComputedMatch = route

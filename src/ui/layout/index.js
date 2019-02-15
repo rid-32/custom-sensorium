@@ -12,29 +12,44 @@ class PageLayout extends Component {
             <div className="pageLayout">
                 <page-header context={context} />
                 <main className="pageLayout-content">
-                    {/* {renderRoutes(route.routes, context)} */}
-                    <custom-switch context={context}>
+                    {renderRoutes(route.routes, context)}
+                    {/* <custom-switch context={context}>
                         <custom-route
                             path="/statistic"
                             component="statistic-page"
+                            exact
                         />
                         <custom-route
                             path="/documents"
                             component="documents-page"
+                            exact
                         />
-                        <custom-route path="/email" component="email-page" />
-                        <custom-route path="/users" component="users-page" />
+                        <custom-route
+                            path="/email"
+                            component="email-page"
+                            exact
+                        />
+                        <custom-route
+                            path="/users"
+                            component="users-page"
+                            exact
+                        />
                         <custom-route
                             path="/settings"
                             component="settings-page"
+                            exact
                         />
-                        <custom-route path="/help" component="help-page" />
+                        <custom-route
+                            path="/help"
+                            component="help-page"
+                            exact
+                        />
                         <custom-route
                             path="/"
                             component="custom-redirect"
                             to="/statistic"
                         />
-                    </custom-switch>
+                    </custom-switch> */}
                 </main>
             </div>
         )

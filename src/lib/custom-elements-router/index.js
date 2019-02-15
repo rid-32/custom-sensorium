@@ -2,6 +2,7 @@ import { Component, createFragmentWithChildren } from 'custom-elements-jsx'
 import invariant from 'tiny-invariant'
 
 import renderRoutes from './renderRoutes'
+import matchRoutes from './matchRoutes'
 
 import './link'
 import './navLink'
@@ -14,6 +15,10 @@ import './browserRouter'
 import './hashRouter'
 
 class CustomRouter extends Component {
+    static computeRootMatch = pathname => {
+        return { path: '/', url: '/', params: {}, isExact: pathname === '/' }
+    }
+
     componentDidCreate() {
         invariant(
             this.props.history,
@@ -37,16 +42,12 @@ class CustomRouter extends Component {
         if (this.unlisten) this.unlisten()
     }
 
-    computeRootMatch = pathname => {
-        return { path: '/', url: '/', params: {}, isExact: pathname === '/' }
-    }
-
     render() {
         const { routes, history, staticContext, children } = this.props
         const context = {
             history: history,
             location: this.location,
-            match: this.computeRootMatch(this.location.pathname),
+            match: CustomRouter.computeRootMatch(this.location.pathname),
             staticContext,
         }
 
@@ -54,8 +55,6 @@ class CustomRouter extends Component {
             return renderRoutes(routes, context)
         }
 
-        // пройтись по массиву children, добавить к каждому элементу context в пропсы
-        // создать фрагмент, добавить в этот фрагмент children и сделать return этого фрагмента
         return createFragmentWithChildren(children, { context })
     }
 }
@@ -63,4 +62,6 @@ class CustomRouter extends Component {
 if (!window.customElements.get('custom-router'))
     window.customElements.define('custom-router', CustomRouter)
 
-export { renderRoutes }
+export default CustomRouter
+
+export { renderRoutes, matchRoutes }
