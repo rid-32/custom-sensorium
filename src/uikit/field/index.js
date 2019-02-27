@@ -8,7 +8,6 @@ class PageField extends Component {
 
     onChange = event => {
         const value = event.target.value + event.key
-        console.log(value)
 
         this.props.onChange(value)
 
