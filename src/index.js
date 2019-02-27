@@ -1,4 +1,5 @@
 import 'ui'
+import 'uikit'
 import app from 'ui/root'
 
 import './stylesheets/styles'

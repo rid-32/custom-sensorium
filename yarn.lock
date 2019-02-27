@@ -2034,6 +2034,11 @@ custom-elements-jsx@^1.0.6:
   resolved "https://registry.yarnpkg.com/custom-elements-jsx/-/custom-elements-jsx-1.0.6.tgz#95fc3790164c84df43ef7c0d2df7bd06576cb413"
   integrity sha512-cyZ3RU6pYmO1oph5BXD5/4xw6zEKiTpG6JgMWqQyFplFU9KhU2UyEVG1PbFPzNVPFj3g0pO/pZ1rvmd/sB/yZg==
 
+custom-elements-jsx@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/custom-elements-jsx/-/custom-elements-jsx-1.1.0.tgz#4c7af732d4191cebe0a8df26a8bb9199aa37afb1"
+  integrity sha512-+2mwp4zS4JPf1Bk7/BnkXiHoEiIM/FTCUWzkTKPux13A9Qyac3Sp2255k5Ueo3fAGr6uZE39dbAYdWo9yKsjZg==
+
 custom-elements-router@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/custom-elements-router/-/custom-elements-router-1.0.1.tgz#fc8292f72a0ce5ef9237303b2bdb7c5a7b005fb5"
