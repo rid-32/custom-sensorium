@@ -4,29 +4,47 @@ import cn from 'classnames'
 import './styles'
 
 class PageField extends Component {
-    setRef = element => (this.input = element)
+    setInput = element => {
+        if (this.props.ref) this.props.ref(element)
 
-    onChange = event => {
-        const value = event.target.value + event.key
-
-        this.props.onChange(value)
-
-        if (this.input) this.input.value = value
-
-        event.preventDefault()
+        this.input = element
     }
 
+    setCleanIcon = element => (this.cleanIcon = element)
+
+    onChange = value => {
+        this.props.onChange(value)
+
+        this.toggleCleanIcon()
+    }
+
+    toggleCleanIcon = () => {
+        const display = this.input.value ? 'initial' : 'none'
+
+        this.cleanIcon.style.display = display
+    }
+
+    cleanFeild = () => this.onChange('')
+
     render() {
-        /* eslint-disable-next-line */
-        const { ref, className, onChange, ...other } = this.props
+        const { className, ...other } = this.props
 
         return (
-            <input
-                {...other}
-                ref={ref || this.setRef}
-                className={cn('pageField', className)}
-                onKeyPress={this.onChange}
-            />
+            <div className={cn('pageField', className)}>
+                <custom-input
+                    {...other}
+                    ref={this.setInput}
+                    className="pageField-input"
+                    onChange={this.onChange}
+                />
+                <span
+                    ref={this.setCleanIcon}
+                    onClick={this.cleanFeild}
+                    className="pageField-fieldClean"
+                >
+                    x
+                </span>
+            </div>
         )
     }
 }

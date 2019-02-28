@@ -1,7 +1,23 @@
 .pageField {
-  padding: 7px 15px;
-  width: 200px;
-  border: 1px solid #555;
-  border-radius: 4px;
-  box-sizing: border-box;
+  position: relative;
+  width: 250px;
+
+  &-input {
+    padding: 7px 15px;
+    width: 100%;
+    padding-right: 20px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  &-fieldClean {
+    font-size: 16px;
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+    cursor: pointer;
+  }
 }

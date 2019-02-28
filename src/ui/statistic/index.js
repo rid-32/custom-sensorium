@@ -2,24 +2,31 @@ import jsx, { Component } from 'custom-elements-jsx'
 
 import { hasOnlyNumbers } from 'utils/validate'
 
+import './styles'
+
 class StatisticPage extends Component {
-    setRef = element => (this.field = element)
+    value = ''
+
+    setInput = element => (this.input = element)
 
     onChange = value => {
         if (hasOnlyNumbers(value)) {
-            this.field.value = value
+            this.input.value = value
+
+            this.value = value
         }
     }
 
     onKeyDown = event => {
-        if (event.key === 'Enter') console.log(this.field.value)
+        if (event.key === 'Enter') console.log(this.value)
     }
 
     render() {
         return (
             <page-field
-                ref={this.setRef}
-                placeholder="hello"
+                ref={this.setInput}
+                value={this.value}
+                placeholder="only numbers"
                 onChange={this.onChange}
                 onKeyDown={this.onKeyDown}
             />

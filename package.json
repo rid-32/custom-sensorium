@@ -52,7 +52,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.6",
-    "custom-elements-jsx": "^1.1.0",
+    "custom-elements-jsx": "^1.1.1",
     "custom-elements-router": "^1.0.1",
     "history": "^4.7.2",
     "redux": "^4.0.1",

@@ -1,4 +1,9 @@
-@import "./settings.scss";
+@import "~stylesheets/settings.scss";
+
+$header-bg-color: $white;
+
+$top-color: rgba(3, 169, 244, 0.5);
+$icon-color: #5ac6f7;
 
 .menuItem {
   position: relative;

@@ -1,3 +1,5 @@
+import 'custom-elements-jsx/lib/elements'
+
 import 'ui'
 import 'uikit'
 import app from 'ui/root'
