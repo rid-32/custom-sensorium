@@ -2029,22 +2029,17 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
-custom-elements-jsx@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/custom-elements-jsx/-/custom-elements-jsx-1.0.6.tgz#95fc3790164c84df43ef7c0d2df7bd06576cb413"
-  integrity sha512-cyZ3RU6pYmO1oph5BXD5/4xw6zEKiTpG6JgMWqQyFplFU9KhU2UyEVG1PbFPzNVPFj3g0pO/pZ1rvmd/sB/yZg==
-
 custom-elements-jsx@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/custom-elements-jsx/-/custom-elements-jsx-1.1.1.tgz#ec0f478e27f57cf80168f2a5b26abbf72d0bd4e5"
   integrity sha512-0LeRzoqenzRwi7ha46aYeTdQGj2wFek9nkZZfByDjvaEpU10VZf7Ae2pspw2QWFnruuNeP+yQURy4LpnPMkgDA==
 
-custom-elements-router@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/custom-elements-router/-/custom-elements-router-1.0.1.tgz#fc8292f72a0ce5ef9237303b2bdb7c5a7b005fb5"
-  integrity sha512-EtJi9Xfif2NEgPB1FH5LH8WpauzlW9DFYLbPDaTmH1VOp93aNI4btJexqhr/xDpnkRE6t8i00VuvIn6AxyWzEQ==
+custom-elements-router@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/custom-elements-router/-/custom-elements-router-1.1.0.tgz#2fe75c3f1f1b73781be0c6bd970381eaff068a51"
+  integrity sha512-alPF1g7v/EsP60PGARcsI8MhJwa5vqSQibdqgGzfSTgWn7vBGxBiRDjP2KFNLYJJO2CxEfcnqxK+EwTjmetALw==
   dependencies:
-    custom-elements-jsx "^1.0.6"
+    custom-elements-jsx "^1.1.1"
     history "^4.7.2"
     tiny-invariant "^1.0.3"
     tiny-warning "^1.0.2"

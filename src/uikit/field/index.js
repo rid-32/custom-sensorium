@@ -24,7 +24,11 @@ class PageField extends Component {
         this.cleanIcon.style.display = display
     }
 
-    cleanFeild = () => this.onChange('')
+    cleanFeild = () => {
+        this.onChange('')
+
+        this.input.focus()
+    }
 
     render() {
         const { className, ...other } = this.props
